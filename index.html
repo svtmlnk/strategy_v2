@@ -40,157 +40,182 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <link rel="stylesheet" href="./style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&display=swap"
+    />
   </head>
   <body>
-    <!-- Фиксированная шапка -->
+    <!-- ===== Шапка и навигация ===== -->
     <header class="header">
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="#home" class="logo" aria-label="Стратегия - МС">
-          <span class="logo__text">Стратегия - МС</span>
-        </a>
-        <ul class="nav__list" id="menu">
-          <li class="nav__item">
-            <a class="nav__link" href="#about">О компании</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#products">Продукция</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#services">Услуги</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#benefits">Преимущества</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#requisites">Реквизиты</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#contacts">Контакты</a>
-          </li>
-        </ul>
-        <a href="#contacts" class="button nav__action">Оставить заявку</a>
-        <button
-          class="nav__burger"
-          type="button"
-          aria-label="Меню"
-          aria-expanded="false"
-          aria-controls="menu"
+      <div class="container header__inner">
+        <a class="logo" href="#top"
+          >Стратегия - МС</a
         >
-          <span class="nav__burger-line"></span
-          ><span class="nav__burger-line"></span
-          ><span class="nav__burger-line"></span>
+        <button
+          class="burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="burger__line"></span><span class="burger__line"></span
+          ><span class="burger__line"></span>
         </button>
-      </nav>
+        <nav class="nav" id="site-nav" aria-label="Основная навигация">
+          <a class="nav__link" href="#about">О компании</a>
+          <a class="nav__link" href="#products">Продукция</a>
+          <a class="nav__link" href="#services">Услуги</a>
+          <a class="nav__link" href="#benefits">Преимущества</a>
+          <a class="nav__link" href="#contacts">Контакты</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Section 1: Hero -->
-    <section class="hero" id="home">
-      <!-- Замените hero.mp4 на своё видео. poster — картинка, пока видео грузится -->
-      <video
-        class="hero__video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="hero.jpg"
-        aria-hidden="true"
-      >
-        <source src="hero.mp4" type="video/mp4" />
-      </video>
+    <main id="top">
+      <!-- ===== Секция 1. Hero ===== -->
+      <section class="hero">
+        <div class="container hero__inner">
+          <h1 class="hero__title">
+            Надёжные поставки нефтепродуктов
+            <span class="hero__title-muted">для вашего бизнеса</span>
+          </h1>
+          <a class="button button--light hero__button" href="#contacts"
+            >Оставить заявку</a
+          >
 
-      <div class="hero__bottom">
-        <h1 class="hero__title">
-          <span class="hero__title-word">Нефть</span>
-          <i class="hero__title-line" aria-hidden="true"></i>
-          <span class="hero__title-word">Стратегия</span>
-        </h1>
-        <div class="hero__row">
-          <p class="hero__text">
-            Надёжные оптовые поставки нефтепродуктов для бизнеса по всей России.
+          <div class="hero__footer">
+            <div class="badge">
+              <svg
+                class="badge__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <polygon
+                  points="23,12 21.27,14.48 21.53,17.5 18.79,18.79 17.5,21.53 14.48,21.27 12,23 9.52,21.27 6.5,21.53 5.21,18.79 2.47,17.5 2.73,14.48 1,12 2.73,9.52 2.47,6.5 5.21,5.21 6.5,2.47 9.52,2.73 12,1 14.48,2.73 17.5,2.47 18.79,5.21 21.53,6.5 21.27,9.52"
+                />
+                <path d="M8.5 12.3l2.5 2.5 4.6-5" />
+              </svg>
+              <p class="badge__text">
+                Активный участник АО Петербургская Биржа
+              </p>
+            </div>
+            <p class="hero__text">
+              Оптовые поставки СУГ, бензинов, дизельного топлива и авиационного
+              керосина по железной дороге. Биржевые цены, прозрачные условия,
+              чёткие сроки.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Секция 2. О компании ===== -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="stats">
+            <div>
+              <span class="stats__label">Отгружено нефтепродуктов</span
+              ><span class="stats__value">280K т</span>
+            </div>
+            <div>
+              <span class="stats__label">Рост объёма поставок</span
+              ><span class="stats__value">68%</span>
+            </div>
+            <div>
+              <span class="stats__label">Клиентов остаются с нами</span
+              ><span class="stats__value">95%</span>
+            </div>
+            <div>
+              <span class="stats__label">Выполненных поставок</span
+              ><span class="stats__value">300+</span>
+            </div>
+          </div>
+
+          <p class="mission">
+            Наша задача — обеспечивать стабильные поставки топлива, опираясь на
+            знание рынка, биржевую аналитику и
+            <span class="mission__muted"
+              >собственную логистику, выстроенную от нефтебазы до резервуара
+              клиента.</span
+            >
           </p>
-          <a href="#about" class="explore hero__explore"
-            >Узнать больше
-            <svg
-              class="explore__icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 4v16M5 13l7 7 7-7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <main>
-      <!-- Section 2: О компании (только текст) -->
-      <section class="section section--green" id="about">
-        <div class="container">
-          <p class="about__text">
-            Мы торгуем нефтепродуктами и берём на себя весь путь от биржи до
-            станции назначения.
-            <span class="about__text-muted"
-              >Прозрачные цены, чёткие сроки и полный комплект документов.</span
-            >
-          </p>
+          <div class="watermark" aria-hidden="true">Стратегия - МС</div>
+
+          <div class="about">
+            <div>
+              <span class="tag">О нас</span>
+              <h2 class="heading">
+                Мы отвечаем за каждую тонну
+                <span class="heading__muted"
+                  >— поэтому поставки идут точно в срок</span
+                >
+              </h2>
+              <p class="about__text">
+                Мы торгуем нефтепродуктами напрямую: подбираем партию под задачу
+                клиента, фиксируем цену по биржевым котировкам и сопровождаем
+                отгрузку до приёмки на объекте.
+              </p>
+              <a class="button" href="#contacts">Узнать больше</a>
+            </div>
+
+            <div
+              class="about__picture"
+              role="img"
+              aria-label="Железнодорожные цистерны с нефтепродуктами"
+            ></div>
+          </div>
         </div>
       </section>
 
-      <!-- Section 3: Продукция (карточки) -->
-      <section class="section section--sand" id="products">
+      <!-- ===== Секция 3. Продукция ===== -->
+      <section class="section section--dark" id="products">
         <div class="container">
-          <div class="section-head">
-            <h2 class="section-head__title">Продукция</h2>
-            <p class="section-head__text">
-              Четыре направления, которые закрывают основные потребности оптовых
-              покупателей.
-            </p>
+          <div class="heading--center">
+            <span class="tag">Продукция</span>
+            <h2 class="heading">
+              Что мы поставляем
+              <span class="heading__muted"
+                >для промышленности, транспорта и энергетики</span
+              >
+            </h2>
           </div>
-          <div class="products" data-aos="fade-up" data-aos-delay="0">
-            <article class="product-card">
-              <p class="product-card__mark">Пропан · Бутан · ПБТ</p>
+
+          <div class="products__grid">
+            <article class="card card--accent">
+              <span class="card__tag">Газ</span>
               <div>
-                <h3 class="product-card__title">СУГ</h3>
-                <p class="product-card__text">
-                  Сжиженные углеводородные газы для промышленности, коммунальной
-                  сферы и перепродажи.
+                <h3 class="card__title">СУГ</h3>
+                <p class="card__text">
+                  Пропан, бутан, ПБТ. Для коммунальных нужд, промышленности и
+                  автотранспорта.
                 </p>
               </div>
             </article>
-            <article
-              class="product-card"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              <p class="product-card__mark">АИ-92 · АИ-95 · АИ-98</p>
+            <article class="card">
+              <span class="card__tag">Топливо</span>
               <div>
-                <h3 class="product-card__title">Бензины</h3>
-                <p class="product-card__text">
-                  Автомобильные бензины для АЗС, нефтебаз и транспортных
-                  предприятий.
+                <h3 class="card__title">Бензины</h3>
+                <p class="card__text">
+                  АИ-92, АИ-95, АИ-98 экологического класса К5. Оптовые партии.
                 </p>
               </div>
             </article>
-            <article
-              class="product-card"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <p class="product-card__mark">Летнее · Зимнее · Арктическое</p>
+            <article class="card">
+              <span class="card__tag">Топливо</span>
               <div>
-                <h3 class="product-card__title">Дизельное топливо</h3>
-                <p class="product-card__text">
-                  Дизельное топливо для автопарков, сельского хозяйства и
-                  строительной техники.
+                <h3 class="card__title">Дизельное топливо</h3>
+                <p class="card__text">
+                  Летнее, межсезонное, зимнее и арктическое. Соответствует ГОСТ
+                  и техрегламенту.
                 </p>
               </div>
             </article>
@@ -198,238 +223,236 @@
         </div>
       </section>
 
-      <!-- Section 4: Услуги -->
-      <section class="section section--brown" id="services">
-        <div class="container services">
-          <div class="section-head section-head--large">
-            <h2 class="section-head__title">Услуги</h2>
-            <p class="section-head__text">
-              Поставляем топливо под ключ: подбор продукта, организация отгрузки
-              и сопровождение сделки.
-            </p>
-          </div>
-          <ul class="services__list">
-            <li class="services__item" data-aos="fade-up">
-              <h3 class="services__name">СУГ (пропан, бутан, ПБТ)</h3>
-              <p class="services__text">
-                Поставки партиями и по долгосрочным договорам.
-              </p>
-            </li>
-            <li class="services__item" data-aos="fade-up">
-              <h3 class="services__name">Бензины</h3>
-              <p class="services__text">
-                Отгрузка нужных марок в согласованные сроки.
-              </p>
-            </li>
-            <li class="services__item" data-aos="fade-up">
-              <h3 class="services__name">Дизельное топливо</h3>
-              <p class="services__text">
-                Подбор класса топлива под сезон и регион.
-              </p>
-            </li>
-            <li class="services__item" data-aos="fade-up">
-              <h3 class="services__name">Авиационный керосин</h3>
-              <p class="services__text">
-                Поставки для авиапредприятий с контролем качества.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Section 5: Что получает клиент -->
-      <section class="section section--sand" id="benefits">
+      <!-- ===== Секция 4. Услуги ===== -->
+      <section class="section" id="services">
         <div class="container">
-          <div class="section-head">
-            <h2 class="section-head__title">Что получает клиент</h2>
+
+          <div class="heading--center">
+            <span class="tag">Услуги</span>
+            <h2 class="heading">
+              Подбираем продукт, объём и базис поставки под вашу задачу.
+              <span class="heading__muted"
+                >Откройте нужное направление, чтобы узнать, что входит в
+                сделку.</span
+              >
+            </h2>
           </div>
-          <div class="benefits">
-            <div class="benefits__item" data-aos="fade-up" data-aos-delay="0">
-              <h3 class="benefits__title">Биржевое ценообразование</h3>
-              <p class="benefits__text">
-                Цена привязана к биржевым котировкам, поэтому условия понятны и
-                проверяемы.
+
+          <div class="services__list">
+            <details class="service" open>
+              <summary class="service__head">
+                СУГ (пропан, бутан, ПБТ)<span class="service__icon"></span>
+              </summary>
+              <p class="service__body">
+                Поставка сжиженных углеводородных газов в железнодорожных
+                цистернах. Подбор марки под сезон и назначение.
               </p>
-            </div>
-            <div class="benefits__item" data-aos="fade-up" data-aos-delay="150">
-              <h3 class="benefits__title">Сеть РЖД</h3>
-              <p class="benefits__text">
-                Организуем железнодорожные отгрузки до станций назначения.
+            </details>
+            <details class="service">
+              <summary class="service__head">
+                Бензины<span class="service__icon"></span>
+              </summary>
+              <p class="service__body">
+                Оптовые партии АИ-92, АИ-95 и АИ-98 с паспортом качества на
+                каждую отгрузку.
               </p>
-            </div>
-            <div class="benefits__item" data-aos="fade-up" data-aos-delay="300">
-              <h3 class="benefits__title">Гибкие объёмы</h3>
-              <p class="benefits__text">
-                Работаем с разовыми партиями и регулярными поставками.
+            </details>
+            <details class="service">
+              <summary class="service__head">
+                Дизельное топливо<span class="service__icon"></span>
+              </summary>
+              <p class="service__body">
+                Летние, межсезонные, зимние и арктические марки. Планируем
+                графики поставок на весь сезон.
               </p>
-            </div>
-            <div class="benefits__item" data-aos="fade-up" data-aos-delay="450">
-              <h3 class="benefits__title">Документооборот</h3>
-              <p class="benefits__text">
-                Договор, паспорта качества и закрывающие документы готовим без
-                задержек.
-              </p>
-            </div>
+            </details>
           </div>
         </div>
       </section>
 
-      <!-- Section 6: Реквизиты -->
-      <section class="section section--brown" id="requisites">
+      <!-- ===== Секция 5. Что получает клиент ===== -->
+      <section class="section section--brown" id="benefits">
         <div class="container">
-          <div class="section-head">
-            <h2 class="section-head__title">Реквизиты</h2>
-            <p class="section-head__text">
-              Данные компании для заключения договора и платежей.
-            </p>
+          <div class="heading--center">
+            <span class="tag">Преимущества</span>
+            <h2 class="heading">
+              Что получает клиент
+              <span class="heading__muted">от работы с нами</span>
+            </h2>
           </div>
-          <!-- Реквизиты-заглушки (данные примера): замените на реквизиты «Стратегия-МС» -->
-          <div class="requisites__list">
-            <div class="requisites__item requisites__item--wide">
-              <span class="requisites__label">Полное наименование</span>
-              <span class="requisites__value"
-                >Общество с ограниченной ответственностью «ЗВЕЗДА»</span
-              >
-            </div>
-            <div class="requisites__item requisites__item--wide">
-              <span class="requisites__label">Сокращённое наименование</span>
-              <span class="requisites__value">ООО «ЗВЕЗДА»</span>
-            </div>
-            <div class="requisites__item requisites__item--wide">
-              <span class="requisites__label">Юридический адрес</span>
-              <span class="requisites__value"
-                >190000, г. Санкт-Петербург, ул. Малая Морская, д. 15, литера А,
-                пом. 4-Н, оф. 2</span
-              >
-            </div>
-            <div class="requisites__item requisites__item--wide">
-              <span class="requisites__label">Фактический адрес</span>
-              <span class="requisites__value"
-                >190000, г. Санкт-Петербург, ул. Малая Морская, д. 15, литера А,
-                пом. 4-Н, оф. 2</span
-              >
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">ОГРН</span>
-              <span class="requisites__value">1197847239226</span>
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">ИНН/КПП</span>
-              <span class="requisites__value">7838089458 / 783801001</span>
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">Расчетный счет №</span>
-              <span class="requisites__value">40702810590270002791</span>
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">Корреспондентский счет №</span>
-              <span class="requisites__value">30101810900000000790</span>
-            </div>
-            <div class="requisites__item requisites__item--wide">
-              <span class="requisites__label"
-                >Наименование и адрес обслуживающего банка</span
-              >
-              <span class="requisites__value"
-                >ПАО "БАНК "САНКТ-ПЕТЕРБУРГ" Г. САНКТ-ПЕТЕРБУРГ</span
-              >
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">БИК</span>
-              <span class="requisites__value">044030790</span>
-            </div>
-            <div class="requisites__item">
-              <span class="requisites__label">ОКТМО</span>
-              <span class="requisites__value">40303000</span>
-            </div>
+
+          <div class="benefits__grid">
+            <article class="benefit">
+              <h3 class="benefit__title">Биржевое ценообразование</h3>
+              <p class="benefit__text">
+                Цена привязана к котировкам биржи. Без скрытых наценок и
+                неожиданных пересчётов.
+              </p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__title">Сеть РЖД</h3>
+              <p class="benefit__text">
+                Отгружаем по железной дороге на любую станцию сети. Сами
+                организуем перевозку.
+              </p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__title">Гибкие объёмы</h3>
+              <p class="benefit__text">
+                От разовой партии до регулярных поставок на сезон — под ваш
+                график потребления.
+              </p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__title">Документооборот</h3>
+              <p class="benefit__text">
+                Договор, паспорта качества и закрывающие документы готовим сами
+                и вовремя.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Section 7: Заявка -->
-      <section class="section section--dark" id="contacts">
-        <div class="container contacts">
-          <div class="section-head section-head--compact">
-            <h2 class="section-head__title">Оставить заявку</h2>
-            <p class="section-head__text">
-              Расскажите, какой продукт и объём вам нужны. Менеджер свяжется с
-              вами и обсудит сроки и условия поставки.
-            </p>
-          </div>
-          <form class="form" id="contact-form">
-            <div class="form__field">
-              <label class="form__label" for="name">ФИО</label>
+      <!-- ===== Секция 6. Контакты ===== -->
+      <section class="section" id="contacts">
+        <div class="container">
+          <span class="tag">Контакты</span>
+          <h2 class="heading">
+            Реквизиты и обратная связь
+            <span class="heading__muted">— ответим в течение рабочего дня</span>
+          </h2>
+
+          <div class="contacts__grid">
+            <dl class="requisites" style="margin: 0">
+              <div class="requisites__row">
+                <dt class="requisites__label">Полное наименование</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  Общество с ограниченной ответственностью «Стратегия - МС»
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Сокращённое наименование</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  ООО «Стратегия - МС»
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">
+                  Юридический и фактический адрес
+                </dt>
+                <dd class="requisites__value" style="margin: 0">
+                  190000, г. Санкт-Петербург, ул. Малая Морская, д. 15, литера
+                  А, пом. 4-Н, оф. 2
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">ОГРН</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  1197847239226
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">ИНН / КПП</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  7838089458 / 783801001
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Расчётный счёт №</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  40702810590270002791
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Корреспондентский счёт №</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  30101810900000000790
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Банк</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  ПАО «БАНК «САНКТ-ПЕТЕРБУРГ», г. Санкт-Петербург
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">БИК</dt>
+                <dd class="requisites__value" style="margin: 0">044030790</dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">ОКТМО</dt>
+                <dd class="requisites__value" style="margin: 0">40303000</dd>
+              </div>
+            </dl>
+
+            <form class="form" id="contact-form">
               <input
                 class="form__input"
-                id="name"
                 name="name"
-                type="text"
+                required
+                maxlength="150"
                 autocomplete="name"
-                required
+                placeholder="ФИО"
               />
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="company">Название компании</label>
+              <div class="form__row">
+                <input
+                  class="form__input"
+                  name="email"
+                  type="email"
+                  required
+                  maxlength="254"
+                  autocomplete="email"
+                  placeholder="Почта"
+                />
+                <input
+                  class="form__input"
+                  name="phone"
+                  type="tel"
+                  required
+                  maxlength="30"
+                  autocomplete="tel"
+                  placeholder="Телефон"
+                />
+              </div>
               <input
                 class="form__input"
-                id="company"
                 name="company"
-                type="text"
+                required
+                maxlength="200"
                 autocomplete="organization"
+                placeholder="Название компании"
               />
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="phone">Телефон</label>
-              <input
-                class="form__input"
-                id="phone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-              />
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="email">Почта</label>
-              <input
-                class="form__input"
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-              />
-            </div>
-            <div class="form__field form__field--wide">
-              <label class="form__label" for="message">Описание</label>
               <textarea
                 class="form__input form__input--textarea"
-                id="message"
                 name="message"
-                placeholder="Продукт, объём, станция назначения"
+                maxlength="3000"
+                placeholder="Опишите запрос: продукт, объём, станция назначения"
               ></textarea>
-            </div>
-            <label class="form__consent">
-              <input
-                class="form__checkbox"
-                type="checkbox"
-                name="consent"
-                required
-              />
-              Я согласен на обработку персональных данных
-            </label>
-            <button class="button form__submit" type="submit">
-              Отправить заявку
-            </button>
-            <p class="form__status" role="status"></p>
-          </form>
+              <label class="form__agreement">
+                <input
+                  class="form__checkbox"
+                  type="checkbox"
+                  name="agree"
+                  required
+                />
+                <span>Я согласен на обработку персональных данных</span>
+              </label>
+              <button class="button form__submit" type="submit">
+                Отправить заявку
+              </button>
+              <p class="form__status" id="form-status" role="status"></p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer__grid">
         <div>
-          <a class="footer__logo" href="#home">Стратегия - МС</a>
+          <a class="footer__logo" href="#top">Стратегия - МС</a>
           <p class="footer__about">
             Оптовые поставки нефтепродуктов с биржи по железной дороге.
           </p>
@@ -437,10 +460,10 @@
         <nav aria-label="Навигация в подвале">
           <h3 class="footer__title">Разделы</h3>
           <ul class="footer__list">
+            <li><a class="footer__link" href="#about">О компании</a></li>
             <li><a class="footer__link" href="#products">Продукция</a></li>
             <li><a class="footer__link" href="#services">Услуги</a></li>
             <li><a class="footer__link" href="#benefits">Преимущества</a></li>
-            <li><a class="footer__link" href="#requisites">Реквизиты</a></li>
             <li><a class="footer__link" href="#contacts">Контакты</a></li>
           </ul>
         </nav>
