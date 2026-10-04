@@ -121,6 +121,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   });
 });
 
+// Год берётся из часов устройства посетителя. Значение 2026 в разметке осталось запасным, на случай если скрипт не сработает.
+document.querySelector('.footer__year').textContent = new Date().getFullYear();
+
 AOS.init({
   once: true,
 });
