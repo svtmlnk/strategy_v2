@@ -875,6 +875,10 @@ ul {
         padding: 14px 0;
         border-bottom: 1px solid rgba(239, 232, 220, .12);
     }
+
+    .about__picture {
+        background-position: left;
+    }
 }
 
 @media (max-width: 520px) {
