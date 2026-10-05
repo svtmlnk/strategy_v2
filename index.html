@@ -429,63 +429,99 @@
               </div>
             </dl>
 
-            <form class="form" id="contact-form">
-              <input
-                class="form__input"
-                name="name"
-                required
-                maxlength="150"
-                autocomplete="name"
-                placeholder="ФИО"
-              />
-              <div class="form__row">
+            <div class="form-box" id="form-box">
+              <form class="form" id="contact-form">
                 <input
                   class="form__input"
-                  name="email"
-                  type="email"
+                  name="name"
                   required
-                  maxlength="254"
-                  autocomplete="email"
-                  placeholder="Почта"
+                  maxlength="150"
+                  autocomplete="name"
+                  placeholder="ФИО"
                 />
+                <div class="form__row">
+                  <input
+                    class="form__input"
+                    name="email"
+                    type="email"
+                    required
+                    maxlength="254"
+                    autocomplete="email"
+                    placeholder="Почта"
+                  />
+                  <input
+                    class="form__input"
+                    name="phone"
+                    type="tel"
+                    required
+                    maxlength="30"
+                    autocomplete="tel"
+                    placeholder="Телефон"
+                  />
+                </div>
                 <input
                   class="form__input"
-                  name="phone"
-                  type="tel"
+                  name="company"
                   required
-                  maxlength="30"
-                  autocomplete="tel"
-                  placeholder="Телефон"
+                  maxlength="200"
+                  autocomplete="organization"
+                  placeholder="Название компании"
                 />
+                <textarea
+                  class="form__input form__input--textarea"
+                  name="message"
+                  maxlength="3000"
+                  placeholder="Опишите запрос: продукт, объём, станция назначения"
+                ></textarea>
+
+                <!-- Ловушка для ботов: люди это поле не видят -->
+                <input
+                  class="form__hp"
+                  type="text"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+
+                <label class="form__agreement">
+                  <input
+                    class="form__checkbox"
+                    type="checkbox"
+                    name="agree"
+                    required
+                  />
+                  <span>Я согласен на обработку персональных данных</span>
+                </label>
+                <button class="button form__submit" type="submit">
+                  Отправить заявку
+                </button>
+              </form>
+
+              <!-- Этап загрузки -->
+              <div class="form-state" id="form-loading" role="status" hidden>
+                <span class="loader" aria-hidden="true"></span>
+                <p class="form-state__text">Отправляем заявку…</p>
               </div>
-              <input
-                class="form__input"
-                name="company"
-                required
-                maxlength="200"
-                autocomplete="organization"
-                placeholder="Название компании"
-              />
-              <textarea
-                class="form__input form__input--textarea"
-                name="message"
-                maxlength="3000"
-                placeholder="Опишите запрос: продукт, объём, станция назначения"
-              ></textarea>
-              <label class="form__agreement">
-                <input
-                  class="form__checkbox"
-                  type="checkbox"
-                  name="agree"
-                  required
-                />
-                <span>Я согласен на обработку персональных данных</span>
-              </label>
-              <button class="button form__submit" type="submit">
-                Отправить заявку
-              </button>
-              <p class="form__status" id="form-status" role="status"></p>
-            </form>
+
+              <!-- Успех -->
+              <div class="form-state" id="form-success" role="status" hidden>
+                <p class="form-state__text">
+                  Спасибо! Заявка отправлена, с вами свяжутся в течение
+                  рабочего дня.
+                </p>
+              </div>
+
+              <!-- Ошибка -->
+              <div class="form-state" id="form-failure" role="alert" hidden>
+                <p class="form-state__text">
+                  Что-то пошло не так. Заявка не отправлена, попробуйте ещё раз.
+                </p>
+                <button class="button" type="button" id="form-retry">
+                  Попробовать снова
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

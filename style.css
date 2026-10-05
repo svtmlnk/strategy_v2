@@ -460,6 +460,12 @@ ul {
     display: flex;
     align-items: flex-end;
     background: linear-gradient(180deg, #2c4a3a 0%, #7a5233 100%);
+    background-image:
+        linear-gradient(180deg, rgba(44, 74, 58, .35), rgba(122, 82, 51, .5)),
+        url("./assets/test.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* ============ 3. Продукция (карточки) ============ */
@@ -692,10 +698,72 @@ ul {
     accent-color: var(--brown-600);
 }
 
-.form__status {
-    min-height: 1.4em;
-    font-size: 14px;
-    color: var(--brown-600);
+/* Атрибут hidden должен побеждать display из классов */
+[hidden] {
+    display: none !important;
+}
+
+.form-box {
+    position: relative;
+}
+
+/* Состояния формы: загрузка / успех / ошибка.
+   Высота берётся от формы (задаётся из JS), чтобы вёрстка не прыгала */
+.form-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: var(--form-h, 320px);
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    text-align: center;
+}
+
+.form-state__text {
+    max-width: 360px;
+    font-size: 16px;
+}
+
+/* Поле-ловушка для ботов */
+.form__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* Лоадер */
+.loader {
+    --color-1: #fff;
+    --size: 1px;
+
+    width: calc(48 * var(--size));
+    height: calc(48 * var(--size));
+    border-radius: 50%;
+    display: inline-block;
+    border-top: calc(3 * var(--size)) solid var(--color-1);
+    border-right: calc(3 * var(--size)) solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+/* Фон секции светлый, поэтому белый лоадер на нём не виден */
+.form-state .loader {
+    --color-1: var(--brown-600);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* ============ Футер ============ */

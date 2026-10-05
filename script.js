@@ -85,22 +85,68 @@ navLinks.forEach(function (link) {
   });
 });
 
-// Заглушка отправки формы: подключите здесь свой backend
+// Отправка формы заявки
 var form = document.getElementById("contact-form");
+var formBox = document.getElementById("form-box");
+var formStates = {
+  form: form,
+  loading: document.getElementById("form-loading"),
+  success: document.getElementById("form-success"),
+  failure: document.getElementById("form-failure"),
+};
+
+function showFormState(name) {
+  Object.keys(formStates).forEach(function (key) {
+    formStates[key].hidden = key !== name;
+  });
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  document.getElementById("form-status").textContent =
-    "Спасибо! Заявка отправлена, менеджер свяжется с вами.";
-  form.reset();
+
+  // Заполнено скрытое поле — это бот: делаем вид, что всё хорошо, ничего не шлём
+  if (form.elements.website.value) {
+    form.reset();
+    showFormState("success");
+    return;
+  }
+
+  // Данные формы -> обычный объект -> JSON
+  var data = {};
+  new FormData(form).forEach(function (value, key) {
+    data[key] = value;
+  });
+  delete data.website;
+
+  // Фиксируем высоту, чтобы блок не схлопывался при смене состояния
+  formBox.style.setProperty("--form-h", form.offsetHeight + "px");
+  showFormState("loading");
+
+  fetch("https://submit-form.com/msRoBphP3", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then(function (response) {
+      if (response.ok) {
+        form.reset();
+        showFormState("success");
+      } else {
+        showFormState("failure");
+      }
+    })
+    .catch(function (error) {
+      console.error("Ошибка:", error);
+      showFormState("failure");
+    });
 });
 
-// Заглушка отправки формы: подключите здесь свой backend
-var form = document.getElementById("contact-form");
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  document.getElementById("form-status").textContent =
-    "Спасибо! Заявка отправлена, менеджер свяжется с вами.";
-  form.reset();
+// После ошибки возвращаем форму с уже введёнными данными
+document.getElementById("form-retry").addEventListener("click", function () {
+  showFormState("form");
 });
 
 // Якорные ссылки: плавный переход без #hash в адресной строке
