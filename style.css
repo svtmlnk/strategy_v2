@@ -3,36 +3,22 @@
 /* ============ Токены ============ */
 :root {
     --green-900: #10211a;
+    --green-800: #13271e;
     --green-700: #1d3a2c;
     --brown-600: #7a5233;
     --brown-300: #c9a27a;
     --sand: #a99c88;
-    --paper: #f6f3ee;
-    --ink: #10211a;
-    --muted: #8a8175;
-    --line: #ddd5c8;
-    --font: "Onest", "Segoe UI", Arial, sans-serif;
-    --radius-card: 20px;
-    --radius-pill: 999px;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --paper: #0c1511;
-        --ink: #efe8dc;
-        --muted: #9a917f;
-        --line: #2b3a31;
-    }
-}
-
-:root[data-theme="dark"] {
     --paper: #0c1511;
     --ink: #efe8dc;
     --muted: #9a917f;
     --line: #2b3a31;
+    --font: "Onest", "Segoe UI", Arial, sans-serif;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: dark;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ============ База ============ */
@@ -98,7 +84,7 @@ ul {
 }
 
 .section--dark {
-    background: var(--green-900);
+    background: var(--green-800);
     color: #efe8dc;
 }
 
@@ -139,15 +125,16 @@ ul {
     padding: 13px 28px;
     border: 0;
     border-radius: var(--radius-pill);
-    background: var(--green-900);
+    background: var(--brown-600);
     color: #fff;
     font: 400 14px var(--font);
     cursor: pointer;
-    transition: background .2s;
+    transition: background .2s, color .2s;
 }
 
 .button:hover {
-    background: var(--brown-600);
+    background: var(--brown-300);
+    color: var(--green-900);
 }
 
 .button--light {
@@ -403,16 +390,6 @@ ul {
     font-size: clamp(44px, 6vw, 68px);
     font-weight: 300;
     letter-spacing: -.03em;
-    color: var(--green-700);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .stats__value {
-        color: var(--brown-300);
-    }
-}
-
-:root[data-theme="dark"] .stats__value {
     color: var(--brown-300);
 }
 
@@ -751,7 +728,7 @@ ul {
 
 /* Фон секции светлый, поэтому белый лоадер на нём не виден */
 .form-state .loader {
-    --color-1: var(--brown-600);
+    --color-1: var(--brown-300);
 }
 
 @keyframes rotation {
