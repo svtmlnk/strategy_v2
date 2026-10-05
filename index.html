@@ -52,9 +52,7 @@
     <!-- ===== Шапка и навигация ===== -->
     <header class="header">
       <div class="container header__inner">
-        <a class="logo" href="#top"
-          >Стратегия - МС</a
-        >
+        <a class="logo" href="#top">Стратегия - МС</a>
         <button
           class="burger"
           type="button"
@@ -78,6 +76,19 @@
     <main id="top">
       <!-- ===== Секция 1. Hero ===== -->
       <section class="hero">
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="./assets/video_bg_poster.jpg"
+          class="bg-video"
+        >
+          <source src="./assets/video_bg_web.webm" type="video/webm" />
+          <source src="./assets/video_bg_web.mp4" type="video/mp4" />
+        </video>
         <div class="container hero__inner">
           <h1 class="hero__title">
             Надёжные поставки нефтепродуктов
@@ -104,9 +115,7 @@
                 />
                 <path d="M8.5 12.3l2.5 2.5 4.6-5" />
               </svg>
-              <p class="badge__text">
-                Участник АО Петербургская Биржа
-              </p>
+              <p class="badge__text">Участник АО Петербургская Биржа</p>
             </div>
             <p class="hero__text">
               Оптовые поставки СУГ, бензинов, дизельного топлива и авиационного
@@ -122,20 +131,28 @@
         <div class="container">
           <div class="stats">
             <div>
-              <span class="stats__label">Отгружено нефтепродуктов</span
-              ><span class="stats__value">280K т</span>
+              <span class="stats__label">Отгружено нефтепродуктов</span>
+              <span class="stats__value" data-count="280" data-suffix="K т"
+                >280K т</span
+              >
             </div>
             <div>
-              <span class="stats__label">Рост объёма поставок</span
-              ><span class="stats__value">68%</span>
+              <span class="stats__label">Рост объёма поставок</span>
+              <span class="stats__value" data-count="68" data-suffix="%"
+                >68%</span
+              >
             </div>
             <div>
-              <span class="stats__label">Клиентов остаются с нами</span
-              ><span class="stats__value">95%</span>
+              <span class="stats__label">Клиентов остаются с нами</span>
+              <span class="stats__value" data-count="95" data-suffix="%"
+                >95%</span
+              >
             </div>
             <div>
-              <span class="stats__label">Выполненных поставок</span
-              ><span class="stats__value">300+</span>
+              <span class="stats__label">Выполненных поставок</span>
+              <span class="stats__value" data-count="300" data-suffix="+"
+                >300+</span
+              >
             </div>
           </div>
 
@@ -190,7 +207,11 @@
           </div>
 
           <div class="products__grid">
-            <article class="card card--accent">
+            <article
+              class="card card--accent"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
               <span class="card__tag">Газ</span>
               <div>
                 <h3 class="card__title">СУГ</h3>
@@ -200,7 +221,7 @@
                 </p>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-aos="fade-up" data-aos-delay="150">
               <span class="card__tag">Топливо</span>
               <div>
                 <h3 class="card__title">Бензины</h3>
@@ -209,7 +230,7 @@
                 </p>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-aos="fade-up" data-aos-delay="300">
               <span class="card__tag">Топливо</span>
               <div>
                 <h3 class="card__title">Дизельное топливо</h3>
@@ -226,7 +247,6 @@
       <!-- ===== Секция 4. Услуги ===== -->
       <section class="section" id="services">
         <div class="container">
-
           <div class="heading--center">
             <span class="tag">Услуги</span>
             <h2 class="heading">
@@ -239,7 +259,7 @@
           </div>
 
           <div class="services__list">
-            <details class="service" open>
+            <details class="service" open data-aos="fade-up">
               <summary class="service__head">
                 СУГ (пропан, бутан, ПБТ)<span class="service__icon"></span>
               </summary>
@@ -248,7 +268,7 @@
                 цистернах. Подбор марки под сезон и назначение.
               </p>
             </details>
-            <details class="service">
+            <details class="service" data-aos="fade-up">
               <summary class="service__head">
                 Бензины<span class="service__icon"></span>
               </summary>
@@ -257,7 +277,7 @@
                 каждую отгрузку.
               </p>
             </details>
-            <details class="service">
+            <details class="service" data-aos="fade-up">
               <summary class="service__head">
                 Дизельное топливо<span class="service__icon"></span>
               </summary>
@@ -282,28 +302,28 @@
           </div>
 
           <div class="benefits__grid">
-            <article class="benefit">
+            <article class="benefit" data-aos="fade-up" data-aos-delay="0">
               <h3 class="benefit__title">Биржевое ценообразование</h3>
               <p class="benefit__text">
                 Цена привязана к котировкам биржи. Без скрытых наценок и
                 неожиданных пересчётов.
               </p>
             </article>
-            <article class="benefit">
+            <article class="benefit" data-aos="fade-up" data-aos-delay="150">
               <h3 class="benefit__title">Сеть РЖД</h3>
               <p class="benefit__text">
                 Отгружаем по железной дороге на любую станцию сети. Сами
                 организуем перевозку.
               </p>
             </article>
-            <article class="benefit">
+            <article class="benefit" data-aos="fade-up" data-aos-delay="300">
               <h3 class="benefit__title">Гибкие объёмы</h3>
               <p class="benefit__text">
                 От разовой партии до регулярных поставок на сезон — под ваш
                 график потребления.
               </p>
             </article>
-            <article class="benefit">
+            <article class="benefit" data-aos="fade-up" data-aos-delay="450">
               <h3 class="benefit__title">Документооборот</h3>
               <p class="benefit__text">
                 Договор, паспорта качества и закрывающие документы готовим сами
@@ -328,61 +348,115 @@
               <div class="requisites__row">
                 <dt class="requisites__label">Полное наименование</dt>
                 <dd class="requisites__value" style="margin: 0">
-                  Общество с ограниченной ответственностью «Стратегия - МС»
+                  Общество с ограниченной ответственностью «Стратегия-ЭмСи»
                 </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">Сокращённое наименование</dt>
+                <dt class="requisites__label">Сокращенное наименование</dt>
                 <dd class="requisites__value" style="margin: 0">
-                  ООО «Стратегия - МС»
+                  ООО «Стратегия-МС»
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Юридический адрес</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  141070, Московская область, г. Королёв, ул. Пионерская, д.4
                 </dd>
               </div>
               <div class="requisites__row">
                 <dt class="requisites__label">
-                  Юридический и фактический адрес
+                  Адрес для направления корреспонденции
                 </dt>
                 <dd class="requisites__value" style="margin: 0">
-                  190000, г. Санкт-Петербург, ул. Малая Морская, д. 15, литера
-                  А, пом. 4-Н, оф. 2
+                  141070, Московская область, г. Королёв, ул. Пионерская, д.4
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">
+                  Телефон (с указанием кода города)
+                </dt>
+                <dd class="requisites__value" style="margin: 0">
+                  (495) 902-63-29
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Е-mail (электронная почта)</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  info@st-mc.ru
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">Дата создания</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  16 августа 2012 года
+                </dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">
+                  Свидетельство о внесении в Единый государственный реестр
+                  Юридических лиц (дата, №, кем выдано)
+                </dt>
+                <dd class="requisites__value" style="margin: 0">
+                  16 августа 2012 года; серия 50 № 012595747; Межрайонная
+                  инспекция Федеральной налоговой службы №2 по Московской
+                  области
                 </dd>
               </div>
               <div class="requisites__row">
                 <dt class="requisites__label">ОГРН</dt>
                 <dd class="requisites__value" style="margin: 0">
-                  1197847239226
+                  1125018008543
                 </dd>
               </div>
               <div class="requisites__row">
                 <dt class="requisites__label">ИНН / КПП</dt>
                 <dd class="requisites__value" style="margin: 0">
-                  7838089458 / 783801001
+                  5018153215 / 501801001
                 </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">Расчётный счёт №</dt>
+                <dt class="requisites__label">ОКПО</dt>
+                <dd class="requisites__value" style="margin: 0">13178314</dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">
+                  Расчетный счет № Корреспондентский счет-№ Наименование и адрес
+                  обслуживающего банка БИК
+                </dt>
                 <dd class="requisites__value" style="margin: 0">
-                  40702810590270002791
+                  40702810677000007437 30101810045250000142 Филиал ПАО "Банк
+                  "Санкт-Петербург" в г.Москве 044525142
                 </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">Корреспондентский счёт №</dt>
+                <dt class="requisites__label">ОКВЭД</dt>
+                <dd class="requisites__value" style="margin: 0">46.90</dd>
+              </div>
+              <div class="requisites__row">
+                <dt class="requisites__label">
+                  Банковские реквизиты (наименование банка, ИНН, БИК, к/с, р/с)
+                </dt>
                 <dd class="requisites__value" style="margin: 0">
-                  30101810900000000790
+                  АКБ «АБСОЛЮТБАНК» (ПАО), г. Москва. р/счет
+                  40702810022000037598 к/счет 30101810500000000976 ИНН банка
+                  7736046991 БИК 044525976
                 </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">Банк</dt>
+                <dt class="requisites__label">ФИО</dt>
                 <dd class="requisites__value" style="margin: 0">
-                  ПАО «БАНК «САНКТ-ПЕТЕРБУРГ», г. Санкт-Петербург
+                  Стрижак Александр Святославович
                 </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">БИК</dt>
-                <dd class="requisites__value" style="margin: 0">044030790</dd>
+                <dt class="requisites__label">Должность</dt>
+                <dd class="requisites__value" style="margin: 0">
+                  Генеральный директор
+                </dd>
               </div>
               <div class="requisites__row">
-                <dt class="requisites__label">ОКТМО</dt>
-                <dd class="requisites__value" style="margin: 0">40303000</dd>
+                <dt class="requisites__label">На основании чего действует</dt>
+                <dd class="requisites__value" style="margin: 0">Устава</dd>
               </div>
             </dl>
 
@@ -471,13 +545,13 @@
           <h3 class="footer__title">Связь</h3>
           <ul class="footer__list">
             <li>
-              <a class="footer__link" href="tel:+70000000000"
-                >+7 (000) 000-00-00</a
+              <a class="footer__link" href="tel:+74955132225"
+                >8(495)513-22-25</a
               >
             </li>
             <li>
-              <a class="footer__link" href="mailto:info@strategiya.example"
-                >info@strategiya.example</a
+              <a class="footer__link" href="mailto:info@st-mc.example"
+                >info@st-mc.example</a
               >
             </li>
           </ul>
@@ -492,9 +566,9 @@
         </div>
       </div>
       <p class="footer__copy">
-        © <span class="footer__year">2026</span> ООО «Стратегия-МС». Все права защищены. Деятельность ведётся в
-        соответствии с законодательством РФ. Информация на сайте не является
-        публичной офертой.
+        © <span class="footer__year">2026</span> ООО «Стратегия-МС». Все права
+        защищены. Деятельность ведётся в соответствии с законодательством РФ.
+        Информация на сайте не является публичной офертой.
       </p>
     </footer>
   </body>

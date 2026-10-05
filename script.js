@@ -121,8 +121,123 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   });
 });
 
+// Плавное раскрытие и закрытие <details class="service">
+var reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+document.querySelectorAll(".service").forEach(function (details) {
+  var summary = details.querySelector(".service__head");
+  var animation = null;
+
+  function animateHeight(from, to, onFinish) {
+    if (animation) animation.cancel();
+    details.style.overflow = "hidden";
+    animation = details.animate(
+      { height: [from + "px", to + "px"] },
+      { duration: reduceMotion ? 0 : 300, easing: "ease-in-out" },
+    );
+    animation.onfinish = function () {
+      animation = null;
+      details.style.overflow = "";
+      onFinish();
+    };
+    animation.oncancel = function () {
+      animation = null;
+    };
+  }
+
+  function open() {
+    details.classList.remove("service--closing");
+    var from = details.offsetHeight;
+    details.open = true;
+    var to = details.offsetHeight; // естественная высота в раскрытом виде
+    animateHeight(from, to, function () {});
+  }
+
+  function close() {
+    var from = details.offsetHeight;
+    var borders = details.offsetHeight - details.clientHeight;
+    var to = summary.offsetHeight + borders;
+    details.classList.add("service--closing");
+    animateHeight(from, to, function () {
+      details.open = false;
+      details.classList.remove("service--closing");
+    });
+  }
+
+  summary.addEventListener("click", function (event) {
+    event.preventDefault();
+    var isClosing = details.classList.contains("service--closing");
+    if (!details.open || isClosing) {
+      open();
+    } else {
+      close();
+    }
+  });
+});
+
+// Анимация счётчиков в блоке статистики
+var counters = document.querySelectorAll("[data-count]");
+
+function renderCounter(el, value) {
+  var decimals = (el.dataset.count.split(".")[1] || "").length;
+  el.textContent =
+    value.toLocaleString("ru-RU", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }) + (el.dataset.suffix || "");
+}
+
+function animateCounter(el, duration) {
+  var target = Number(el.dataset.count);
+  var startTime = performance.now();
+
+  function frame(now) {
+    var progress = Math.min((now - startTime) / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3); // замедление к концу
+    renderCounter(el, target * eased);
+    if (progress < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+if (!reduceMotion && "IntersectionObserver" in window) {
+  counters.forEach(function (el) {
+    renderCounter(el, 0);
+  });
+
+  var counterObserver = new IntersectionObserver(
+    function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animateCounter(entry.target, 2000);
+        observer.unobserve(entry.target); // запускаем один раз
+      });
+    },
+    { threshold: 0.6 },
+  );
+  counters.forEach(function (el) {
+    counterObserver.observe(el);
+  });
+}
+
+// Автозапуск видео: если браузер заблокировал, пробуем после первого касания
+var heroVideo = document.querySelector(".hero__video");
+if (heroVideo) {
+  heroVideo.play().catch(function () {
+    document.addEventListener(
+      "touchstart",
+      function () {
+        heroVideo.play().catch(function () {});
+      },
+      { once: true, passive: true },
+    );
+  });
+}
+
 // Год берётся из часов устройства посетителя. Значение 2026 в разметке осталось запасным, на случай если скрипт не сработает.
-document.querySelector('.footer__year').textContent = new Date().getFullYear();
+document.querySelector(".footer__year").textContent = new Date().getFullYear();
 
 AOS.init({
   once: true,
